@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @patient.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @patient.lastname %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @patient.dob %>
+</p>
+
+<p>
+  <strong>Complaint:</strong>
+  <%= @patient.complaint %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @patient.address %>
+</p>
+<!-- Display the reviews of a movie -->
+<h2>Requests</h2>
+<% @patient.requests.each do |request| %>
+<p>
+<b>Request procedure:</b>
+<%= request.procedure %>
+<b>Request specialist :</b>
+<%= request.specialist %>
+<b>Request status:</b>
+<%= request.status %>
+<b>Request date:</b>
+<%= request.date %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>
+<%= link_to 'Show Requests', patient_requests_path(@patient) %>
