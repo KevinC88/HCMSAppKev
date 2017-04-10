@@ -1,3 +1,5 @@
+require 'my_logger'
+
 class PatientsController < ApplicationController
 before_filter :authenticate_user!
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
@@ -34,6 +36,8 @@ end
   # POST /patients.json
   def create
     @patient = Patient.new(patient_params)
+logger = MyLogger.send :new
+logger.logInformation("A new patient has been added: "+@patient.firstname+","+@patient.lastname+" at "+Time.now.to_s)
 
     respond_to do |format|
       if @patient.save

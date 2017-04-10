@@ -1,3 +1,5 @@
+require 'my_logger'
+
 class RequestsController < ApplicationController
   def index
 @patient = Patient.find(params[:patient_id])
@@ -17,6 +19,9 @@ class RequestsController < ApplicationController
 def create
 @patient = Patient.find(params[:patient_id])
 @request = @patient.requests.build(params.require(:request).permit(:procedure, :specialist, :status, :date))
+logger = MyLogger.send :new
+      logger.logInformation("A new request has been added - "+@patient.firstname+","+@patient.lastname+","+@request.procedure+","+@request.specialist+","+@request.status+" at "+Time.now.to_s)
+
 if @request.save
 redirect_to patient_request_url(@patient, @request)
 else

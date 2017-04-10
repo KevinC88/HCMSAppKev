@@ -1753,3 +1753,369 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-04-10 19:35:32 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 436ms (Views: 421.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-10 20:12:28 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 242ms (Views: 230.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-10 20:12:31 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (245.6ms)
+Completed 200 OK in 342ms (Views: 275.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-04-10 20:12:40 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yz58bPV6wOqGMWqaYXKc5RfSxiqgg7xlm4BdHKGgB/siMwHEtjUe9jay0FnJZCLGp+cOO2T6iVO6er6HraVzvg==", "user"=>{"email"=>"tony@tony.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "tony@tony.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-04-10 19:12:40 UTC], ["last_sign_in_at", 2017-04-09 12:31:20 UTC], ["sign_in_count", 4], ["updated_at", 2017-04-10 19:12:40 UTC], ["id", 2]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/signedinuserprofile
+Completed 302 Found in 308ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/signedinuserprofile" for 127.0.0.1 at 2017-04-10 20:12:40 +0100
+Processing by ProfilesController#signedinuserprofile as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/profiles/1
+Completed 302 Found in 80ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/profiles/1" for 127.0.0.1 at 2017-04-10 20:12:41 +0100
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  Rendered profiles/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 50ms (Views: 46.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2017-04-10 20:12:49 +0100
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:PatientsController> at /Users/KevinC/HCMSApp/app/controllers/patients_controller.rb:4)
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 38ms (Views: 27.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2017-04-10 20:13:01 +0100
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (15.1ms)
+  Rendered patients/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 41ms (Views: 37.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/patients" for 127.0.0.1 at 2017-04-10 20:13:24 +0100
+Processing by PatientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dlqa7PZWfxIC2XBnBf0lepBg4lryQw7C1mIOZgQEnMohHGVL8E/CsONCjdg9KytZN9QC9QyGuS9H+t0p5Xu+aQ==", "patient"=>{"firstname"=>"John", "lastname"=>"Doe", "dob(1i)"=>"2017", "dob(2i)"=>"4", "dob(3i)"=>"10", "complaint"=>"neck pain", "address"=>"5 west valley lane, Dundalk"}, "commit"=>"Create Patient"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (private method `new' called for MyLogger:Class):
+  
+app/controllers/patients_controller.rb:39:in `create'
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (83.3ms)
+Started POST "/patients" for 127.0.0.1 at 2017-04-10 20:24:10 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:PatientsController> at /Users/KevinC/HCMSApp/app/controllers/patients_controller.rb:4)
+Processing by PatientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dlqa7PZWfxIC2XBnBf0lepBg4lryQw7C1mIOZgQEnMohHGVL8E/CsONCjdg9KytZN9QC9QyGuS9H+t0p5Xu+aQ==", "patient"=>{"firstname"=>"John", "lastname"=>"Doe", "dob(1i)"=>"2017", "dob(2i)"=>"4", "dob(3i)"=>"10", "complaint"=>"neck pain", "address"=>"5 west valley lane, Dundalk"}, "commit"=>"Create Patient"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (private method `new' called for MyLogger:Class):
+  
+app/controllers/patients_controller.rb:39:in `create'
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (81.2ms)
+Started POST "/patients" for 127.0.0.1 at 2017-04-10 20:25:51 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:PatientsController> at /Users/KevinC/HCMSApp/app/controllers/patients_controller.rb:4)
+Processing by PatientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dlqa7PZWfxIC2XBnBf0lepBg4lryQw7C1mIOZgQEnMohHGVL8E/CsONCjdg9KytZN9QC9QyGuS9H+t0p5Xu+aQ==", "patient"=>{"firstname"=>"John", "lastname"=>"Doe", "dob(1i)"=>"2017", "dob(2i)"=>"4", "dob(3i)"=>"10", "complaint"=>"neck pain", "address"=>"5 west valley lane, Dundalk"}, "commit"=>"Create Patient"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 1.1ms)
+
+
+  
+TypeError (no implicit conversion of Patient into String):
+  
+app/controllers/patients_controller.rb:40:in `+'
+app/controllers/patients_controller.rb:40:in `create'
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.0ms)
+Started POST "/patients" for 127.0.0.1 at 2017-04-10 20:29:09 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:PatientsController> at /Users/KevinC/HCMSApp/app/controllers/patients_controller.rb:4)
+Processing by PatientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dlqa7PZWfxIC2XBnBf0lepBg4lryQw7C1mIOZgQEnMohHGVL8E/CsONCjdg9KytZN9QC9QyGuS9H+t0p5Xu+aQ==", "patient"=>{"firstname"=>"John", "lastname"=>"Doe", "dob(1i)"=>"2017", "dob(2i)"=>"4", "dob(3i)"=>"10", "complaint"=>"neck pain", "address"=>"5 west valley lane, Dundalk"}, "commit"=>"Create Patient"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "patients" ("firstname", "lastname", "dob", "complaint", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["firstname", "John"], ["lastname", "Doe"], ["dob", Mon, 10 Apr 2017], ["complaint", "neck pain"], ["address", "5 west valley lane, Dundalk"], ["created_at", 2017-04-10 19:29:09 UTC], ["updated_at", 2017-04-10 19:29:09 UTC]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/patients/4
+Completed 302 Found in 46ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/patients/4" for 127.0.0.1 at 2017-04-10 20:29:09 +0100
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."patient_id" = ?[0m  [["patient_id", 4]]
+  Rendered patients/show.html.erb within layouts/application (196.5ms)
+Completed 200 OK in 444ms (Views: 437.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-10 20:37:10 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 263ms (Views: 251.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2017-04-10 20:37:15 +0100
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:PatientsController> at /Users/KevinC/HCMSApp/app/controllers/patients_controller.rb:4)
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 50ms (Views: 38.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2017-04-10 20:37:21 +0100
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (24.8ms)
+  Rendered patients/new.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 54ms (Views: 49.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/patients" for 127.0.0.1 at 2017-04-10 20:37:43 +0100
+Processing by PatientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gYbUV+hbn0/hAaDpPSONRqJ7Ni/ATj52xXKiQOcZPr/WwCvw7kIi7QCaXVYF9YNlBc/WgD6LiZtU6nEPBmYcHA==", "patient"=>{"firstname"=>"Becky", "lastname"=>"Lowe", "dob(1i)"=>"2012", "dob(2i)"=>"9", "dob(3i)"=>"23", "complaint"=>"Knife wound", "address"=>"N/A"}, "commit"=>"Create Patient"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "patients" ("firstname", "lastname", "dob", "complaint", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["firstname", "Becky"], ["lastname", "Lowe"], ["dob", Sun, 23 Sep 2012], ["complaint", "Knife wound"], ["address", "N/A"], ["created_at", 2017-04-10 19:37:43 UTC], ["updated_at", 2017-04-10 19:37:43 UTC]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/patients/5
+Completed 302 Found in 7ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/patients/5" for 127.0.0.1 at 2017-04-10 20:37:43 +0100
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."patient_id" = ?[0m  [["patient_id", 5]]
+  Rendered patients/show.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 46ms (Views: 39.9ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-04-10 20:41:03 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SsJNjIjK7w5TA48HXSV9qYnu7LgbQrh8+e2wos2LcS1TDgkoehlYI1NI4gGT6BUkdRMKY16I7aZc308sYnkQqw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 22ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-04-10 20:41:03 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-04-10 20:41:05 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/devise-4.2.1/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/devise-4.2.1/app/views/devise/registrations/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 36ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-04-10 20:48:05 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 50ms (Views: 32.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-04-10 20:48:15 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FfLkRjH/8/bwwQNCsm6VTWPIh4Y7CWHB58w9pB3iLHcMq5K6nG2Ev5Bd1fkzla9tB1mJ8uhT+qL51E3e7hoLjA==", "user"=>{"email"=>"tony@tony.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "tony@tony.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-04-10 19:48:15 UTC], ["last_sign_in_at", 2017-04-10 19:12:40 UTC], ["sign_in_count", 5], ["updated_at", 2017-04-10 19:48:15 UTC], ["id", 2]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/signedinuserprofile
+Completed 302 Found in 153ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/signedinuserprofile" for 127.0.0.1 at 2017-04-10 20:48:15 +0100
+Processing by ProfilesController#signedinuserprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/profiles/1
+Completed 302 Found in 9ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/profiles/1" for 127.0.0.1 at 2017-04-10 20:48:15 +0100
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  Rendered profiles/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 26ms (Views: 23.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2017-04-10 20:48:22 +0100
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:PatientsController> at /Users/KevinC/HCMSApp/app/controllers/patients_controller.rb:4)
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 41ms (Views: 35.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2017-04-10 20:48:22 +0100
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" ORDER BY created_at DESC[0m
+  Rendered patients/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 26ms (Views: 23.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/patients/5" for 127.0.0.1 at 2017-04-10 20:48:29 +0100
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."patient_id" = ?[0m  [["patient_id", 5]]
+  Rendered patients/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 34ms (Views: 30.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/patients/5/requests" for 127.0.0.1 at 2017-04-10 20:48:31 +0100
+Processing by RequestsController#index as HTML
+  Parameters: {"patient_id"=>"5"}
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."patient_id" = ?[0m  [["patient_id", 5]]
+  Rendered requests/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 37ms (Views: 33.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/patients/5/requests/new" for 127.0.0.1 at 2017-04-10 20:48:33 +0100
+Processing by RequestsController#new as HTML
+  Parameters: {"patient_id"=>"5"}
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/application
+  Rendered requests/_form.html.erb (2.9ms)
+  Rendered requests/new.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 64ms (Views: 32.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/patients/5/requests" for 127.0.0.1 at 2017-04-10 20:48:55 +0100
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rLIxXUVWFQIc7AqwgZEHNESdEFPT51xQacNxgHx1W6JMXK9yBtwXDSaX500QrcjCw3FG023lUqRlMPwFx0nFYA==", "request"=>{"procedure"=>"Surgery", "specialist"=>"Dr. Conlon", "status"=>"Pending", "date"=>"17/05/2017"}, "commit"=>"Create Request", "patient_id"=>"5"}
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms)
+
+
+  
+TypeError (no implicit conversion of Date into String):
+  
+app/controllers/requests_controller.rb:23:in `+'
+app/controllers/requests_controller.rb:23:in `create'
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/KevinC/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (77.8ms)
+Started POST "/patients/5/requests" for 127.0.0.1 at 2017-04-10 20:50:08 +0100
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rLIxXUVWFQIc7AqwgZEHNESdEFPT51xQacNxgHx1W6JMXK9yBtwXDSaX500QrcjCw3FG023lUqRlMPwFx0nFYA==", "request"=>{"procedure"=>"Surgery", "specialist"=>"Dr. Conlon", "status"=>"Pending", "date"=>"17/05/2017"}, "commit"=>"Create Request", "patient_id"=>"5"}
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "requests" ("procedure", "specialist", "status", "date", "patient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["procedure", "Surgery"], ["specialist", "Dr. Conlon"], ["status", "Pending"], ["date", Wed, 17 May 2017], ["patient_id", 5], ["created_at", 2017-04-10 19:50:08 UTC], ["updated_at", 2017-04-10 19:50:08 UTC]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/patients/5/requests/5
+Completed 302 Found in 24ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/patients/5/requests/5" for 127.0.0.1 at 2017-04-10 20:50:08 +0100
+Processing by RequestsController#show as HTML
+  Parameters: {"patient_id"=>"5", "id"=>"5"}
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."patient_id" = ? AND "requests"."id" = ? LIMIT ?[0m  [["patient_id", 5], ["id", 5], ["LIMIT", 1]]
+  Rendering requests/show.html.erb within layouts/application
+  Rendered requests/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 42ms (Views: 36.9ms | ActiveRecord: 0.7ms)
+
+
