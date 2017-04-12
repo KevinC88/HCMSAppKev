@@ -1,44 +1,75 @@
+<div class="col-lg-6">
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @patient.firstname %>
-</p>
+<div class="panel panel-info">
+<div class="panel-heading"> Patient</div>
+<div class="panel-body">
+<table class="table table-hover table-striped table-bordered table-responsive">
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @patient.lastname %>
-</p>
+<thead>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+<th>D.O.B</th>
+<th>Complaint</th>
+<th>Address</th>
+</tr>
+</thead>
 
-<p>
-  <strong>Dob:</strong>
-  <%= @patient.dob %>
-</p>
+<tbody>
+<tr>
+<td><%= @patient.firstname %></td>
+<td><%= @patient.lastname %></td>
+<td><%= @patient.dob %></td>
+<td><%= @patient.complaint %></td>
+<td><%= @patient.address %></td>
+</tr>
 
-<p>
-  <strong>Complaint:</strong>
-  <%= @patient.complaint %>
-</p>
+</tbody>
+</table>
+</div>
+</div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @patient.address %>
-</p>
+<div class="panel panel-info">
+<div class="panel-heading"> Requests</div>
+<div class="panel-body">
+
 <!-- Display the reviews of a movie -->
-<h2>Requests</h2>
-<% @patient.requests.each do |request| %>
-<p>
-<b>Request procedure:</b>
-<%= request.procedure %>
-<b>Request specialist :</b>
-<%= request.specialist %>
-<b>Request status:</b>
-<%= request.status %>
-<b>Request date:</b>
-<%= request.date %>
-</p>
-<% end %>
 
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
-<%= link_to 'Show Requests', patient_requests_path(@patient) %>
+
+<table class="table table-hover table-striped table-bordered table-responsive">
+<thead>
+    <tr>
+      <th>Procedure</th>
+      <th>Specialist</th>
+      <th>Status</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+<% @patient.requests.each do |request| %>
+
+<tr>
+<td>
+<%= request.procedure %>
+</td>
+<td>
+<%= request.specialist %>
+</td>
+<td>
+<%= request.status %>
+</td>
+<td>
+<%= request.date %>
+</td>
+<% end %>
+</tr>
+</table>
+</div>
+</div>
+
+
+<%= link_to 'Edit', edit_patient_path(@patient), class: "btn btn-info btn-block" %>
+<%= link_to 'Back', patients_path, class: "btn btn-info btn-block" %>
+<%= link_to 'Show Requests', patient_requests_path(@patient), class: "btn btn-info btn-block" %>
+</div>

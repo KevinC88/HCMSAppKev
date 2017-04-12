@@ -10,33 +10,42 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="col-lg-6">
+<div class="panel panel-info">
+<div class="panel-heading">New Patient</div>
+<div class="panel-body">
+<form class="form-inline">
+  <div class="form-group col-xs-7">
     <%= f.label :firstname %>
-    <%= f.text_field :firstname %>
+    <%= f.text_field :firstname, class:"form-control input-sm" %>
   </div>
 
-  <div class="field">
+  <div class="form-group col-xs-7">
     <%= f.label :lastname %>
-    <%= f.text_field :lastname %>
+    <%= f.text_field :lastname, class:"form-control input-sm" %>
   </div>
 
-  <div class="field">
+  <div class="form-group col-xs-7">
     <%= f.label :dob %>
-    <%= f.date_select :dob %>
+    <%= f.date_select :dob,:start_year => 1900, :end_year => Time.now.year,  class:"form-control input-sm" %>
   </div>
 
-  <div class="field">
+  <div class="form-group col-xs-7">
     <%= f.label :complaint %>
-    <%= f.text_field :complaint %>
+    <%= f.text_area :complaint, class:"form-control input-sm" %>
   </div>
 
-  <div class="field">
+  <div class="form-group col-xs-7">
     <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.text_area :address, class:"form-control input-sm" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions col-xs-7">
+    <%= f.submit class:"btn btn-success" %>
   </div>
+</form>
+</div>
+</div>
+</div>
+</div>
 <% end %>

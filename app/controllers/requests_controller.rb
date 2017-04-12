@@ -1,6 +1,10 @@
 require 'my_logger'
 
 class RequestsController < ApplicationController
+
+before_filter :authenticate_user!
+ before_filter :ensure_admin, :only => [:edit, :destroy]
+
   def index
 @patient = Patient.find(params[:patient_id])
 @requests = @patient.requests

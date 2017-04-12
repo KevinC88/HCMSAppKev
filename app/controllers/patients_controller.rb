@@ -1,8 +1,17 @@
 require 'my_logger'
 
 class PatientsController < ApplicationController
+
 before_filter :authenticate_user!
+ before_filter :ensure_admin, :only => [:edit, :destroy]
+
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
+
+def ensure_admin
+unless current_user && current_user.admin?
+render :text => "Access Error Message", :status => :unauthorized
+ end
+end
 
   # GET /patients
   # GET /patients.json
@@ -84,4 +93,6 @@ logger.logInformation("A new patient has been added: "+@patient.firstname+","+@p
     def patient_params
       params.require(:patient).permit(:firstname, :lastname, :dob, :complaint, :address)
     end
+
+
 end

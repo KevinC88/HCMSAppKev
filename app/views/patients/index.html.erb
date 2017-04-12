@@ -1,20 +1,23 @@
+<div class="col-lg-6">
 <p id="notice"><%= notice %></p>
+
+
 <%= form_tag(patients_path, :method => "get") do %>
 <%= text_field_tag :search, nil, :placeholder => "Search names" %>
-<%= submit_tag "Search" %>
+<%= submit_tag "Search", class: "btn btn-info"  %>
 <% end %>
+</br>
 
-<h1>Patients</h1>
 
-<table>
+<table class="table table-hover table-striped table-bordered table repsonsive">
   <thead>
     <tr>
       <th>Firstname</th>
       <th>Lastname</th>
-      <th>Dob</th>
+      <th>D.O.B</th>
       <th>Complaint</th>
       <th>Address</th>
-      <th colspan="3"></th>
+      <th colspan="3">Options </th>
     </tr>
   </thead>
 
@@ -26,14 +29,18 @@
         <td><%= patient.dob %></td>
         <td><%= patient.complaint %></td>
         <td><%= patient.address %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'Show', patient, class: "btn btn-success" %></td>
+<% if current_user.admin? %>
+        <td><%= link_to 'Edit', edit_patient_path(patient), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+  <% end %>   
+ </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Patient', new_patient_path %>
+<%= link_to 'New Patient', new_patient_path, class: "btn btn-info btn-block" %>
+</br>
+</div>

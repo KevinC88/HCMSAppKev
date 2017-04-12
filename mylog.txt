@@ -1,3 +1,7 @@
 A new patient has been added: Doe at 2017-04-10 20:29:09 +0100
 A new patient has been added: Becky,Lowe at 2017-04-10 20:37:43 +0100
 A new request has been added - Becky,Lowe,Surgery,Dr. Conlon,Pending at 2017-04-10 20:50:08 +0100
+A new request has been added - John,Doe,MRI,Dr. Hannigan,Confirmed at 2017-04-11 14:51:31 +0100
+A new request has been added - John,Doe,,,Select One at 2017-04-11 16:22:04 +0100
+A new request has been added - Mary ,Jane,Blood Test,Dr. Singh,Pending... at 2017-04-11 16:28:14 +0100
+A new request has been added - John,Doe,MRI,Dr. Clarke,Pending... at 2017-04-11 20:09:08 +0100

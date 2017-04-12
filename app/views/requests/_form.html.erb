@@ -10,21 +10,31 @@ prohibited this request from being saved:</h2>
 </ul>
 </div>
 <% end %>
-<div class="field">
+
+
+<div class="col-lg-6">
+  <div class="panel panel-info">
+<div class="panel-heading"> Request</div>
+    <div class="panel-body">
+
+
+<div class="form-group">
 <p>
-<%= f.label :Procedure %><br />
+<%= f.label :Procedure %>
 <%= f.text_field :procedure %>
-<%= f.label :Specialist %><br />
+<%= f.label :Specialist %>
 <%= f.text_field :specialist %>
-<%= f.label :Status %><br />
-<%= f.text_field :status %>
-<%= f.label :Date %><br />
+<%= f.label :Status %>
+<%= f.select :status, options_for_select(["Select One","Pending...", "Confirmed"]), class: "form-control input-lg" %>
+<%= f.label :Date %>
 <%= f.text_field :date %>
 
 </p>
 </div>
+</div>
+</div>
+</div>
 <div class="actions">
-<%= f.submit %>
+<%= f.submit class: "btn btn-success btn-block" %>
 </div>
 <% end %>
-

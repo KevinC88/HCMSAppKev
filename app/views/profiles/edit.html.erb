@@ -1,6 +1,11 @@
-<h1>Editing Profile</h1>
+<div class="col-lg-6">
+<div class="panel panel-info">
+  <div class="panel-heading">Editing Profile</div>
+  <div class="panel-body">
 
 <%= render 'form', profile: @profile %>
-
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>
+</div>
+</div>
+<%= link_to 'Show', @profile, class: "btn btn-success btn-block" %>
+<%= link_to 'Back', profiles_path, class: "btn btn-warning btn-block" %>
+</div>
